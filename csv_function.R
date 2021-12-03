@@ -13,7 +13,7 @@ cmdlfiles<-function(directory){
    a<-read.table(i, header = TRUE)
    b<-gsub(pattern = "\\.txt$","",i)
    c<-assign(b,paste(b,".csv",sep = ""))
-   write.csv(a, file = c, quote = FALSE)
+   write.csv(a, file = c, quote = FALSE, row.names = FALSE)
    }
   setwd("..")
 }
