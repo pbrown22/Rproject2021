@@ -4,20 +4,26 @@
 
 #Usage: call the function cmdlfiles with the directory of files as the input
 
-cmdlfiles<-function(directory){
-  setwd(directory)
-  x<-list.files(pattern = "*.txt")
+cmdlfiles<-function(...){
+  datalist <- list(...)
+  for(directory in datalist){
+    setwd(directory)
+    x<-list.files(pattern = "*.txt")
  
-   for(i in x){
+      for(i in x){
    
-   a<-read.table(i, header = TRUE)
-   b<-gsub(pattern = "\\.txt$","",i)
-   c<-assign(b,paste(b,".csv",sep = ""))
-   write.csv(a, file = c, quote = FALSE, row.names = FALSE)
-   }
-  setwd("..")
+
+        a<-read.table(i, header = TRUE)
+        b<-gsub(pattern = "\\.txt$","",i)
+        c<-assign(b,paste(b,".csv",sep = ""))
+       write.csv(a, file = c, quote = FALSE, row.names = FALSE)
+      }
+   setwd("..")
+  }
+
 }
   
+
   
   
   
