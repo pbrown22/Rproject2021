@@ -12,6 +12,7 @@ cmdlfiles<-function(...){
  
       for(i in x){
    
+
         a<-read.table(i, header = TRUE)
         b<-gsub(pattern = "\\.txt$","",i)
         c<-assign(b,paste(b,".csv",sep = ""))
@@ -19,6 +20,7 @@ cmdlfiles<-function(...){
       }
    setwd("..")
   }
+
 }
   
 
